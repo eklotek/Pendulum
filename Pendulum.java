@@ -10,20 +10,19 @@
 import static java.lang.Math.sin;
 import static java.lang.Math.cos;
 
-public class Pendulum implements Runnable
+import java.awt.EventQueue;
+
+public class Pendulum
 {
     public static void main(String[] args)
     {
-        Pendulum p = new Pendulum(1, 0.9, 1, 0.9, 179.999, 179.999, 0, 0, 0.001);
-        for (int i = 0; i < 10; i++)
+        EventQueue.invokeLater(new Runnable()
         {
-            p.step();
-            System.out.println(p.get());
-        }
-    }
-
-    public void run()
-    {
+            public void run()
+            {
+                new PendulumConsumer();
+            }
+        });
     }
 
     private static final double g = 9.80665;
