@@ -9,17 +9,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class PendulumProducer implements Runnable
 {
     private Pendulum pendulum;
-    private BlockingQueue<Pair> queue;
+    private BlockingQueue<Data> queue;
 
     public PendulumProducer(Pendulum p, int capacity)
     {
         pendulum = p;
-        queue = new LinkedBlockingQueue<Pair>(capacity);
+        queue = new LinkedBlockingQueue<Data>(capacity);
     }
 
-    public Pair get()
+    public Data get()
     {
-        Pair result = null;
+        Data result = null;
         try
         {
             result = queue.take();
